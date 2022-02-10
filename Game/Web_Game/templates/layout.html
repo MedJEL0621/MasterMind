@@ -11,14 +11,21 @@
     <title>MasterMind Game</title>
 </head>
 <body>
+    {% if title %}
+    <header>
+        <a>MasterMind</a>
+    </header>
+    {% else %}
     <header>
         <a>Bienvenidos MasterMind</a>
     </header>
+    {% endif %}
+    
     <section class="loging">
         <nav>
             <ul style="list-style: none; align-items: center; display: inline-block;">
                 <li>
-                    <button style="position:relative; left: 10px;" type="button" class="btn btn-dark" onclick="alert('Playing')">Play</button>
+                    <button style="position:relative; left: 10px;" type="button" class="btn btn-dark" onclick="playing()">Play</button>
                 </li>
                 <br>
                 <li>
@@ -31,10 +38,10 @@
             </ul>
         </nav>
     </section>
-    
     {% block content %}
-
-    {% endblock %}  
+   
+    {% endblock %}
+  
     <footer>Bestapps</footer>
 </body>
 <script type="text/javascript" src="/static/js/alert.js"></script>

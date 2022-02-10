@@ -4,15 +4,31 @@
 """
 import sqlite3
 from flask import Flask , render_template
+from templates.routes_temp.index import index
 
 app = Flask("Root")
 
 @app.route('/')
 def home():
+    i = 0
+    user = [[1,2,3,4],[2,2,3,4], [3] , [4]]
     # returning string
-    return render_template("index.html")
+    return render_template("index.html", user=user)
+
+@app.route('/MasterMind/<string:name>')
+def log_inn(name):
+    return index(name)
+
+
+@app.route('/game')
+def game():
+    i = 0
+    user = [[1,2,3,4],[2,2,3,4], [3] , [4]]
+    # returning string
+    return render_template("/html/game.html", user=user)
 
 pages = ["/html/states.html", "/html/search.html"]
+
 @app.route(pages[0])
 def bar():
     # returning search bar
@@ -22,6 +38,10 @@ def bar():
 def states():
     # returning states gallery
     return render_template(pages[1])
+
+@app.route('/test')
+def test():
+    render_template('/test.py')
 
 def err_pa():
     def get_db_connection():
