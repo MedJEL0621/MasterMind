@@ -1,0 +1,8 @@
+request
+Flask
+jinja2
+Boostrap
+nodejs
+python3.9
+urllib
+nginx
